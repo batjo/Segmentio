@@ -26,7 +26,7 @@ class SegmentioCell: UICollectionViewCell {
     fileprivate var options = SegmentioOptions()
     fileprivate var style = SegmentioStyle.imageOverLabel
     fileprivate let verticalSeparatorLayer = CAShapeLayer()
-    fileprivate let badgePresenter = BadgeViewPresenter()
+    //fileprivate let badgePresenter = BadgeViewPresenter()
     
     override var isHighlighted: Bool {
         get {
@@ -102,13 +102,13 @@ class SegmentioCell: UICollectionViewCell {
         
         switch style {
         case .onlyLabel:
-            badgePresenter.removeBadgeFromContainerView(containerView!)
+            //badgePresenter.removeBadgeFromContainerView(containerView!)
             segmentTitleLabel?.text = nil
         case .onlyImage:
-            badgePresenter.removeBadgeFromContainerView(imageContainerView!)
+            //badgePresenter.removeBadgeFromContainerView(imageContainerView!)
             segmentImageView?.image = nil
         default:
-            badgePresenter.removeBadgeFromContainerView(containerView!)
+            //badgePresenter.removeBadgeFromContainerView(containerView!)
             segmentTitleLabel?.text = nil
             segmentImageView?.image = nil
         }
@@ -129,7 +129,7 @@ class SegmentioCell: UICollectionViewCell {
                 setupVerticalSeparators()
             }
         }
-        configurateBadgeWithCount(content.badgeCount, color: content.badgeColor)
+        //configurateBadgeWithCount(content.badgeCount, color: content.badgeColor)
     }
     
     func configure(selected: Bool, selectedImage: UIImage? = nil, image: UIImage? = nil) {
@@ -150,28 +150,28 @@ class SegmentioCell: UICollectionViewCell {
         }
     }
     
-    func configurateBadgeWithCount(_ badgeCount: Int?, color: UIColor?) {
-        guard let badgeCount = badgeCount, let color = color else {
-            return
-        }
-        
-        if style == .onlyImage {
-            badgePresenter.addBadgeForContainerView(
-                imageContainerView!,
-                counterValue: badgeCount,
-                backgroundColor: color,
-                badgeSize: .standard
-            )
-        } else {
-            badgePresenter.addBadgeForContainerView(
-                containerView!,
-                counterValue: badgeCount,
-                backgroundColor: color,
-                badgeSize: .standard
-            )
-        }
-    }
-    
+//    func configurateBadgeWithCount(_ badgeCount: Int?, color: UIColor?) {
+//        guard let badgeCount = badgeCount, let color = color else {
+//            return
+//        }
+//
+//        if style == .onlyImage {
+//            badgePresenter.addBadgeForContainerView(
+//                imageContainerView!,
+//                counterValue: badgeCount,
+//                backgroundColor: color,
+//                badgeSize: .standard
+//            )
+//        } else {
+//            badgePresenter.addBadgeForContainerView(
+//                containerView!,
+//                counterValue: badgeCount,
+//                backgroundColor: color,
+//                badgeSize: .standard
+//            )
+//        }
+//    }
+
     func setupConstraintsForSubviews() {
         setupContainerConstraints()
         setupImageContainerConstraints()
